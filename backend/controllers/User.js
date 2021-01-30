@@ -1,6 +1,7 @@
 const UserModel = require('../models/User');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const User = require('../models/User');
 
 
 const RegisterUser = async (req, res) => {
@@ -81,3 +82,38 @@ const LoginUser = async (req, res) => {
         res.status(500).json({ message: "Internal server Error" })
     }
 }
+
+const GoogleAuth = async (req, res) => {
+
+    try {
+        let oldUser = true;
+
+        const user = UserModel.findOne({ googleId: req.body.googleId, email: req.body.email });
+        if (!user) {
+            oldUser = true
+            user = new UserModel({
+                name: req.body.name,
+                email: req.body.email,
+                googleId: req.body.googleId
+            })
+
+            await user.save();
+
+            const token = jwt.sign({ _id: user._id }, process.env.USER_JWT_SECRET);
+            res.status(200).json({
+                message: "Google Authentication Successfull",
+                data: { user, token, oldUser },
+            });
+
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: "Google Authentication unsuccesful" });
+    }
+
+
+}
+
+
+
+

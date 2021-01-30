@@ -20,6 +20,26 @@ var server = app.listen(PORT, () => {
 });
 //
 
+mongoose
+  .connect(`${process.env.DATABASE}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
+  .then(
+    () => {
+      console.log("Connected to database");
+      // app.use("/api/admin", AdminRoutes);
+      // app.use("/api/user", UserRoutes);
+      // app.use('/api/delivery', DeliveryRoute)
+    },
+    (err) => {
+      console.log(err);
+      console.log("Connection Failed retry");
+    }
+  );
+
 
 
 
