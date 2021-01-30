@@ -47,7 +47,7 @@ const RegisterUser = async (req, res) => {
     }
 }
 
-const updateUser = async (req, res) => {
+const UpdateUser = async (req, res) => {
     try {
         const updatedUser = await UserModel.findByIdAndUpdate(
             req.userData._id,
@@ -172,7 +172,7 @@ module.exports = {
     RecoverUser,
     GoogleAuth,
     LoginUser,
-    updateUser,
+    UpdateUser,
     RegisterUser,
     addVehicleToProfile
 }
