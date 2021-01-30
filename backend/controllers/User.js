@@ -2,6 +2,7 @@ const UserModel = require('../models/User');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require('../models/User');
+const generator = require("generate-password")
 
 
 const RegisterUser = async (req, res) => {
@@ -114,6 +115,40 @@ const GoogleAuth = async (req, res) => {
 
 }
 
+const RecoverUser = async (req, res) => {
+    try {
 
+        let user = UserModel.findOne({ email: req.body.email }, { name: 1, email: 1, phone: 1 })
+        if (!user) return res.status(400).json({ message: 'The email address ' + req.body.email + ' is not associated with any account. Double-check your email address and try again.' })
 
+        const new_password = generator.generate({
+            length: 10,
+            numbers: true
+        })
 
+        const salt = bcrypt.genSaltSync(10);
+        const hashedPassword = bcrypt.hashSync(new_password, salt);
+
+        const updatedUser = UserModel.updateOne({ email: req.body.email }, { password: hashedPassword }, (err, result) => {
+            if (err) {
+                res.send(err);
+            } else {
+                //forgotPassword(req.body.email, newpassword)
+                res.status(200).json({ message: "updated" })
+            }
+
+        })
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Password Reset Unsuccesful" });
+    }
+}
+
+module.exports = {
+    RecoverUser,
+    GoogleAuth,
+    LoginUser,
+    updateUser,
+    RegisterUser
+}

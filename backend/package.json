@@ -19,7 +19,7 @@
     "express": "^4.17.1",
     "express-mongo-sanitize": "^2.0.0",
     "fs": "0.0.1-security",
-    "generate-password": "^1.5.1",
+    "generate-password": "^1.6.0",
     "json-2-csv": "^3.7.8",
     "jsonwebtoken": "^8.5.1",
     "mailgen": "^2.0.14",
