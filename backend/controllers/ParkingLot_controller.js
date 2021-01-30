@@ -1,4 +1,4 @@
-const PLModel=require('../Models/ParkingLot')
+const PLModel = require('../Models/ParkingLot')
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken")
 
@@ -34,11 +34,11 @@ const RegisterPL = async (req, res) => {
             email: req.body.email,
             phone: req.body.phone,
             password: hashedPassword,
-            address:req.body.address
+            address: req.body.address
         });
         await newUser.save();
 
-        return res.status(200).json({ message: "Registration Completed" ,data:newUser});
+        return res.status(200).json({ message: "Registration Completed", data: newUser });
 
     } catch (e) {
         console.log(e);
@@ -63,15 +63,15 @@ const LoginUser = async (req, res) => {
         //console.log(user)
         if (!user) {
             return res.status(201).json({ message: "User Not found!" });
-          }
+        }
         const verify = bcrypt.compareSync(req.body.password, user.password);
-    if (!verify) {
-      return res.status(201).json({ message: "Incorrect Password or Email!" });
-    }
-    const token = jwt.sign({ _id: user._id }, process.env.PL_JWT_SECRET);
-    return res
-      .status(200)
-      .json({ message: "Login Succesfull", data: { user, token } });
+        if (!verify) {
+            return res.status(201).json({ message: "Incorrect Password or Email!" });
+        }
+        const token = jwt.sign({ _id: user._id }, process.env.PL_JWT_SECRET);
+        return res
+            .status(200)
+            .json({ message: "Login Succesfull", data: { user, token } });
 
     } catch (e) {
         console.log(e);
@@ -79,7 +79,7 @@ const LoginUser = async (req, res) => {
     }
 }
 
-const completeInfo  = async (req, res) => {
+const completeInfo = async (req, res) => {
     try {
         const updatedUser = await PLModel.findByIdAndUpdate(
             req.userData._id,
@@ -94,60 +94,63 @@ const completeInfo  = async (req, res) => {
     }
 }
 
-const getAllPL= async(req,res) => {
-    try{
-        const allPL=await PLModel.find({})
+const getAllPL = async (req, res) => {
+    try {
+        const allPL = await PLModel.find({})
         res.status(200).send(allPL);
-    }catch (e) {
+    } catch (e) {
         console.log(e);
         res.status(404).json({ message: "Internal server error" });
-      }
+    }
 }
 
 const getPLbyId = async (req, res) => {
     try {
-      let PL = await PLModel.findOne({ _id: req.params.id })
-      
-      res.status(200).send(PL);
-    } catch (e) {
-      console.log(e);
-      res.status(404).json({ message: "Internal server error" });
-    }
-  };
+        let PL = await PLModel.findOne({ _id: req.params.id })
 
-  const rating =async (req,res)=>{
-      try{
-        const user = await PLModel.findOne(
-            {_id:req.params.id}
-        )
-       // console.log(user)
-       let p=0;
-       console.log(user.averageCount)
-  
-   console.log(req.body)
-      p=p*(user.averageCount);
-     //  console.log((req.body))
-       user.averageCount+=1;
-       p=p/user.averageCount;
-       user.averageRating=p
-      // console.log(user)
-      console.log(p)
-       const newuser=await PLModel.findByIdAndUpdate(user._id,user,{new:true});
-      // console.log(newuser)
-       res.status(200).send(newuser)
-       
-      }
-      catch (e) {
+        res.status(200).send(PL);
+    } catch (e) {
         console.log(e);
         res.status(404).json({ message: "Internal server error" });
-      }
-  }
+    }
+};
 
-  module.exports={
-      getAllPL,
-      getPLbyId,
-      RegisterPL,
-      LoginUser,
-      completeInfo,
-      rating
-  }
+const rating = async (req, res) => {
+    try {
+        const user = await PLModel.findOne(
+            { _id: req.params.id }
+        )
+        // console.log(user)
+        let p = user.averageRating;
+        //console.log(user.averageCount)
+
+        //console.log(req.body)
+
+        p = p * (user.averageCount);
+        p += Number(req.body.rating);
+
+        //  console.log((req.body))
+        user.averageCount += 1;
+        p = p / user.averageCount;
+        user.averageRating = p
+        // console.log(user)
+        //console.log(p)
+        const newuser = await PLModel.findByIdAndUpdate(user._id, user, { new: true });
+        // console.log(newuser)
+        res.status(200).send(newuser)
+
+    }
+    catch (e) {
+        console.log(e);
+        res.status(404).json({ message: "Internal server error" });
+    }
+}
+
+module.exports = {
+    getAllPL,
+    getPLbyId,
+    RegisterPL,
+    LoginUser,
+    completeInfo,
+    rating
+}
