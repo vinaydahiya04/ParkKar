@@ -29,7 +29,7 @@ const UserSchema = new mongoose.Schema({
     vehicles: {
         type: [
             {
-                vehicle: { type: Schema.Types.ObjectId, ref: "Vehicle" }
+                vehicle: { type: mongoose.Schema.Types.ObjectId, ref: "Vehicle" }
 
             }
         ],

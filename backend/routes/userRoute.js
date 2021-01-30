@@ -17,3 +17,5 @@ router.post("/signup", RegisterUser);
 router.post("/google", GoogleAuth);
 router.put("/update", UserAuthMiddleware, UpdateUser);
 router.post('/recover', RecoverUser)
+
+module.exports = router;
