@@ -152,7 +152,9 @@ const addVehicleToProfile = async (req, res) => {
     if (!user) return res.status(400).json({ message: "User doesnt exist" })
 
     const vehicle = new VehicleModel({
-        id: req.body.vehicle.id
+        seater: req.body.vehicle.seater,
+        model: req.body.vehicle.model,
+        company: req.body.vehicle.company
     })
 
     user = UserModel.updateOne({ email: req.body.email }, { vehicles: vehicle._id }, (err, result) => {
@@ -171,5 +173,6 @@ module.exports = {
     GoogleAuth,
     LoginUser,
     updateUser,
-    RegisterUser
+    RegisterUser,
+    addVehicleToProfile
 }
