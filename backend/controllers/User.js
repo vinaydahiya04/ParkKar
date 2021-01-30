@@ -1,7 +1,8 @@
-const UserModel = require('../models/User');
+const UserModel = require('../Models/User');
+const VehicleModel = require('../Models/Vehicle')
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const User = require('../models/User');
+
 const generator = require("generate-password")
 
 
@@ -143,6 +144,26 @@ const RecoverUser = async (req, res) => {
         console.log(error);
         res.status(500).json({ message: "Password Reset Unsuccesful" });
     }
+}
+
+const addVehicleToProfile = async (req, res) => {
+
+    let user = UserModel.findOne({ email: req.body.email })
+    if (!user) return res.status(400).json({ message: "User doesnt exist" })
+
+    const vehicle = new VehicleModel({
+        id: req.body.vehicle.id
+    })
+
+    user = UserModel.updateOne({ email: req.body.email }, { vehicles: vehicle._id }, (err, result) => {
+        if (err) {
+            res.send(err);
+        } else {
+
+            res.status(200).json({ message: "updated" })
+        }
+
+    })
 }
 
 module.exports = {
