@@ -29,7 +29,7 @@ const RegisterPL = async (req, res) => {
 
         const salt = bcrypt.genSaltSync(10);
         const hashedPassword = bcrypt.hashSync(req.body.password, salt);
-        let newUser = new UserModel({
+        let newUser = new PLModel({
             name: req.body.name,
             email: req.body.email,
             phone: req.body.phone,
@@ -37,7 +37,7 @@ const RegisterPL = async (req, res) => {
         });
         await newUser.save();
 
-        return res.status(200).json({ message: "Registration Completed" });
+        return res.status(200).json({ message: "Registration Completed" ,data:newUser});
 
     } catch (e) {
         console.log(e);
@@ -59,6 +59,18 @@ const LoginUser = async (req, res) => {
         } else {
             user = PLModel.findOne({ email: req.body.cred })
         }
+        //console.log(user)
+        if (!user) {
+            return res.status(201).json({ message: "User Not found!" });
+          }
+        const verify = bcrypt.compareSync(req.body.password, user.password);
+    if (!verify) {
+      return res.status(201).json({ message: "Incorrect Password or Email!" });
+    }
+    const token = jwt.sign({ _id: user._id }, process.env.PL_JWT_SECRET);
+    return res
+      .status(200)
+      .json({ message: "Login Succesfull", data: { user, token } });
 
     } catch (e) {
         console.log(e);

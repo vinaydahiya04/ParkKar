@@ -77,7 +77,14 @@ const LoginUser = async (req, res) => {
             user = UserModel.findOne({ email: req.body.cred })
         }
 
-
+        const verify = bcrypt.compareSync(req.body.password, user.password);
+        if (!verify) {
+          return res.status(201).json({ message: "Incorrect Password or Email!" });
+        }
+        const token = jwt.sign({ _id: user._id }, process.env.USER_JWT_SECRET);
+        return res
+          .status(200)
+          .json({ message: "Login Succesfull", data: { user, token } });
 
     } catch (error) {
         console.log(error);
