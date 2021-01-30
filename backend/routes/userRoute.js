@@ -6,6 +6,8 @@ const { RecoverUser,
     RegisterUser,
     addVehicleToProfile } = require('../controllers/User')
 
+const UserAuthMiddleware = require('../middlewares/user_auth')
+
 const router = express.Router();
 
 
