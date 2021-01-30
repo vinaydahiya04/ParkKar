@@ -15,7 +15,6 @@ const RegisterPL = async (req, res) => {
             return res.status(400).json({
                 message: "Please send all required fields.",
             });
-
         }
 
         const existingAccount = await PLModel.findOne({
@@ -40,8 +39,8 @@ const RegisterPL = async (req, res) => {
 
         return res.status(200).json({ message: "Registration Completed" });
 
-    } catch (error) {
-        console.log(error);
+    } catch (e) {
+        console.log(e);
         return res.status(500).json({ message: "Internal Server Error" });
     }
 }
@@ -61,10 +60,8 @@ const LoginUser = async (req, res) => {
             user = PLModel.findOne({ email: req.body.cred })
         }
 
-
-
-    } catch (error) {
-        console.log(error);
+    } catch (e) {
+        console.log(e);
         res.status(500).json({ message: "Internal server Error" })
     }
 }
@@ -104,3 +101,5 @@ const getPLbyId = async (req, res) => {
       res.status(404).json({ message: "Internal server error" });
     }
   };
+
+  const searchPL
