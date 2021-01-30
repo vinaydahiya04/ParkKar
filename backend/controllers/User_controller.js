@@ -49,6 +49,7 @@ const RegisterUser = async (req, res) => {
 
 const UpdateUser = async (req, res) => {
     try {
+        console.log(req);
         const updatedUser = await UserModel.findByIdAndUpdate(
             req.userData._id,
             req.body,
@@ -76,6 +77,8 @@ const LoginUser = async (req, res) => {
         } else {
             user = await UserModel.findOne({ email: req.body.cred })
         }
+
+        if (!user) return res.status(400).json({ message: "incorrect credentials" })
 
         const verify = bcrypt.compareSync(req.body.password, user.password);
         if (!verify) {
