@@ -175,7 +175,7 @@ const addVehicleToProfile = async (req, res) => {
 
         const updatedUser = await UserModel.findByIdAndUpdate(
             req.userData._id,
-            vehicles,
+            { vehicles: vehicles },
             { new: true }
         );
 
