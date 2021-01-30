@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 4000;
 
 //ROUTES
 const userRoute = require('./routes/userRoute')
+const plRoute= require('./routes/plRoute')
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -33,7 +34,7 @@ mongoose
       console.log("Connected to database");
       // app.use("/api/admin", AdminRoutes);
       app.use("/api/user", userRoute);
-      // app.use('/api/delivery', DeliveryRoute)
+       app.use('/api/pl', plRoute)
     },
     (err) => {
       console.log(err);

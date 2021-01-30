@@ -102,4 +102,10 @@ const getPLbyId = async (req, res) => {
     }
   };
 
-  const searchPL
+  module.exports={
+      getAllPL,
+      getPLbyId,
+      RegisterPL,
+      LoginUser,
+      completeInfo
+  }

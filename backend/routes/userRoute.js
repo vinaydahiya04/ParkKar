@@ -4,7 +4,7 @@ const { RecoverUser,
     LoginUser,
     UpdateUser,
     RegisterUser,
-    addVehicleToProfile } = require('../controllers/User')
+    addVehicleToProfile } = require('../controllers/User_controller')
 
 const UserAuthMiddleware = require('../middlewares/user_auth')
 

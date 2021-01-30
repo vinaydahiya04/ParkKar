@@ -30,11 +30,11 @@ const ParkingLotSchema = new mongoose.Schema({
         type: String,
         
     },
-    lattitude: {
-        type: String
+    latitude: {
+        type: Number
     },
     longitude: {
-        type: String
+        type: Number
     },
     image: {
         type:
