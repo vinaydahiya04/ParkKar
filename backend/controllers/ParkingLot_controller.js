@@ -54,10 +54,10 @@ const LoginUser = async (req, res) => {
         let user;
 
         if (Number(req.body.cred)) {
-            user = PLModel.findOne({ phone: Number(req.body.cred) })
+            user = await PLModel.findOne({ phone: Number(req.body.cred) })
 
         } else {
-            user = PLModel.findOne({ email: req.body.cred })
+            user = await PLModel.findOne({ email: req.body.cred })
         }
         //console.log(user)
         if (!user) {

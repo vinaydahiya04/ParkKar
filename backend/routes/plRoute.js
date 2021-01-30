@@ -5,7 +5,7 @@ const {  getAllPL,
     LoginUser,
     completeInfo } = require('../controllers/ParkingLot_controller')
 
-const UserAuthMiddleware = require('../middlewares/user_auth')
+const UserAuthMiddleware = require('../middlewares/pl_auth')
 
 const router = express.Router();
 

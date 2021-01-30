@@ -71,10 +71,10 @@ const LoginUser = async (req, res) => {
         let user;
 
         if (Number(req.body.cred)) {
-            user = UserModel.findOne({ phone: Number(req.body.cred) })
+            user = await UserModel.findOne({ phone: Number(req.body.cred) })
 
         } else {
-            user = UserModel.findOne({ email: req.body.cred })
+            user = await UserModel.findOne({ email: req.body.cred })
         }
 
         const verify = bcrypt.compareSync(req.body.password, user.password);
