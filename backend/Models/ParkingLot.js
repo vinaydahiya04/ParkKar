@@ -69,7 +69,8 @@ const ParkingLotSchema = new mongoose.Schema({
     averageRating: {
         type: Number,
         min: [0, 'Rating must be at least 0'],
-        max: [5, 'Rating must can not be more than 5']
+        max: [5, 'Rating must can not be more than 5'],
+        default:0
     },
     averageCount:{
         type:Number,
