@@ -28,7 +28,7 @@ const ParkingLotSchema = new mongoose.Schema({
     // }
     address: {
         type: String,
-        
+
     },
     latitude: {
         type: Number
@@ -46,7 +46,7 @@ const ParkingLotSchema = new mongoose.Schema({
     },
     charges: {
         type: Number,
-       
+
     },
     startingTime: {
         type: String
