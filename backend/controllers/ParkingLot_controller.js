@@ -117,7 +117,25 @@ const getPLbyId = async (req, res) => {
 
   const rating =async (req,res)=>{
       try{
-
+        const user = await PLModel.findOne(
+            {_id:req.params.id}
+        )
+       // console.log(user)
+       let p=0;
+       console.log(user.averageCount)
+  
+   console.log(req.body)
+      p=p*(user.averageCount);
+     //  console.log((req.body))
+       user.averageCount+=1;
+       p=p/user.averageCount;
+       user.averageRating=p
+      // console.log(user)
+      console.log(p)
+       const newuser=await PLModel.findByIdAndUpdate(user._id,user,{new:true});
+      // console.log(newuser)
+       res.status(200).send(newuser)
+       
       }
       catch (e) {
         console.log(e);
@@ -130,5 +148,6 @@ const getPLbyId = async (req, res) => {
       getPLbyId,
       RegisterPL,
       LoginUser,
-      completeInfo
+      completeInfo,
+      rating
   }
