@@ -151,13 +151,19 @@ const addVehicleToProfile = async (req, res) => {
     let user = UserModel.findOne({ email: req.body.email })
     if (!user) return res.status(400).json({ message: "User doesnt exist" })
 
+    let vehicles = user.vehicles;
+
+
+
     const vehicle = new VehicleModel({
         seater: req.body.vehicle.seater,
         model: req.body.vehicle.model,
         company: req.body.vehicle.company
     })
 
-    user = UserModel.updateOne({ email: req.body.email }, { vehicles: vehicle._id }, (err, result) => {
+    vehicles.push(vehicle._id);
+
+    user = UserModel.updateOne({ email: req.body.email }, { vehicles: vehicles }, (err, result) => {
         if (err) {
             res.send(err);
         } else {

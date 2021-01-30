@@ -6,8 +6,9 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoSantize = require("express-mongo-sanitize")
 const PORT = process.env.PORT || 4000;
-//ROUTES
 
+//ROUTES
+const userRoute = require('./routes/userRoute')
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -31,7 +32,7 @@ mongoose
     () => {
       console.log("Connected to database");
       // app.use("/api/admin", AdminRoutes);
-      // app.use("/api/user", UserRoutes);
+      app.use("/api/user", userRoute);
       // app.use('/api/delivery', DeliveryRoute)
     },
     (err) => {
