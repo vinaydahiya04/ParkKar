@@ -11,7 +11,7 @@ const UserAuthMiddleware = require('../middlewares/user_auth')
 const router = express.Router();
 
 
-router.post('/add_vehicle', addVehicleToProfile);
+router.post('/add_vehicle', UserAuthMiddleware, addVehicleToProfile);
 router.post("/login", LoginUser);
 router.post("/signup", RegisterUser);
 router.post("/google", GoogleAuth);

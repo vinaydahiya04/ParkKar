@@ -79,12 +79,12 @@ const LoginUser = async (req, res) => {
 
         const verify = bcrypt.compareSync(req.body.password, user.password);
         if (!verify) {
-          return res.status(201).json({ message: "Incorrect Password or Email!" });
+            return res.status(201).json({ message: "Incorrect Password or Email!" });
         }
         const token = jwt.sign({ _id: user._id }, process.env.USER_JWT_SECRET);
         return res
-          .status(200)
-          .json({ message: "Login Succesfull", data: { user, token } });
+            .status(200)
+            .json({ message: "Login Succesfull", data: { user, token } });
 
     } catch (error) {
         console.log(error);
@@ -155,30 +155,40 @@ const RecoverUser = async (req, res) => {
 
 const addVehicleToProfile = async (req, res) => {
 
-    let user = UserModel.findOne({ email: req.body.email })
-    if (!user) return res.status(400).json({ message: "User doesnt exist" })
-
-    let vehicles = user.vehicles;
+    try {
 
 
+        let vehicles = req.userData.vehicles;
 
-    const vehicle = new VehicleModel({
-        seater: req.body.vehicle.seater,
-        model: req.body.vehicle.model,
-        company: req.body.vehicle.company
-    })
+        if (!vehicles) vehicles = [];
 
-    vehicles.push(vehicle._id);
 
-    user = UserModel.updateOne({ email: req.body.email }, { vehicles: vehicles }, (err, result) => {
-        if (err) {
-            res.send(err);
-        } else {
+        const vehicle = new VehicleModel({
+            seater: req.body.vehicle.seater,
+            model: req.body.vehicle.model,
+            company: req.body.vehicle.company
+        })
 
-            res.status(200).json({ message: "updated" })
-        }
+        await vehicle.save();
 
-    })
+        vehicles.push(vehicle._id);
+
+        const updatedUser = await UserModel.findByIdAndUpdate(
+            req.userData._id,
+            vehicles,
+            { new: true }
+        );
+
+        res.status(200).json({ message: "User Details was updated!", data: updatedUser });
+
+
+    } catch (e) {
+        console.log(e);
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
+
+
+
 }
 
 module.exports = {
