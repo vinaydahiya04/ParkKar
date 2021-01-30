@@ -34,6 +34,7 @@ const RegisterPL = async (req, res) => {
             email: req.body.email,
             phone: req.body.phone,
             password: hashedPassword,
+            address:req.body.address
         });
         await newUser.save();
 
@@ -113,6 +114,16 @@ const getPLbyId = async (req, res) => {
       res.status(404).json({ message: "Internal server error" });
     }
   };
+
+  const rating =async (req,res)=>{
+      try{
+
+      }
+      catch (e) {
+        console.log(e);
+        res.status(404).json({ message: "Internal server error" });
+      }
+  }
 
   module.exports={
       getAllPL,
