@@ -146,11 +146,48 @@ const rating = async (req, res) => {
     }
 }
 
+const searchPL = async(req,res)=>{
+    
+    try{
+     // console.log(req.query.keyword)
+      if(req.query.keyword!==''){
+       
+        PLModel.find({
+          $or:[{'name': {
+            $regex: req.query.keyword,
+            $options: 'i',
+          }},
+        {
+          'address': {
+            $regex: req.query.keyword,
+            $options: 'i',
+          }
+          
+        },
+      ]
+          
+      },function(err,docs){
+      //  console.log(docs.length)
+        if(!err){ 
+          res.status(200).send(docs);
+        return}
+        console.log(err)
+    })
+   
+      }        
+    }
+    catch{
+      console.log(e);
+      res.status(404).json({ message: "Internal server error." });
+    }
+}
+
 module.exports = {
     getAllPL,
     getPLbyId,
     RegisterPL,
     LoginUser,
     completeInfo,
-    rating
+    rating,
+    searchPL
 }

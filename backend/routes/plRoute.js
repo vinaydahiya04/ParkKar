@@ -4,7 +4,8 @@ const {  getAllPL,
     RegisterPL,
     LoginUser,
     completeInfo,
-    rating } = require('../controllers/ParkingLot_controller')
+    rating,
+searchPL } = require('../controllers/ParkingLot_controller')
 
 const UserAuthMiddleware = require('../middlewares/pl_auth')
 
@@ -16,7 +17,7 @@ router.post('/login',LoginUser);
 router.post('/rating/:id',rating);
 router.put('/',UserAuthMiddleware,completeInfo);
 router.get('/all',getAllPL);
-
+router.get('/query',searchPL)
 router.get('/info/:id',getPLbyId);
 
 
