@@ -1,10 +1,10 @@
-# parkKar App
+# ParkKar App
 
-Get information about all nearby Parking Lots using the <i>parkKar</i> app
+Get information about all nearby Parking Lots using the <i>ParkKar</i> app
 
-The parkKar app adds ease to life by providing real time information about nearby Parking Lots. 
+The ParkKar app adds ease to life by providing real time information about nearby Parking Lots. 
 
-Now you go anywhere with your car/bike without any parking issues. Just have a look at the parkKer App and you are Good To Go.
+Now you go anywhere with your car/bike without any parking issues. Just have a look at the ParkKer App and you are Good To Go.
 
 
 <a href="https://youtu.be/byUXP8DwfmM" target="_blank">Checkout the Youtube Video</i></a>
