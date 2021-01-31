@@ -29,7 +29,7 @@ const UserSchema = new mongoose.Schema({
     vehicles: {
         type: [
             {
-                vehicle: { type: Schema.Types.ObjectId, ref: 'vehicle' }
+                vehicle: { type: Schema.Types.ObjectId, ref: 'Vehicle' }
 
             }
         ],
@@ -38,4 +38,4 @@ const UserSchema = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('user', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
