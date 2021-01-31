@@ -42,3 +42,6 @@ Now you go anywhere with your car/bike without any parking issues. Just have a l
 * NodeJS for Backend
 * MongoDB Database
 * Flutter for Mobile App Development
+
+## How To use
+* Download the APK file from the apk folder in the github repository on your android or iOS mobile devices.
