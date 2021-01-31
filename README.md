@@ -9,9 +9,9 @@ Now you go anywhere with your car/bike without any parking issues. Just have a l
 ## Features
 
 * Uses your Location to find nearby Parking Lots.
-* Display the number of Available Spots in the Parking Lots.
-* Allows to navigate via Google Maps.
-* Displays User Ratings and onsite image to help you find a safe Parking Lot for your vehicle.
+* Displays the number of Available Spots in the Parking Lots.
+* Easy Naviagtion via Google Maps.
+* Have a look at User Rating for assurance.
 
 ## User Interface
 
@@ -20,17 +20,17 @@ Now you go anywhere with your car/bike without any parking issues. Just have a l
 <img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/homescreen.jpeg" width="300" margin="auto"/>
 </p>
 
-### * List and Location of Parking Lots
+### List and Location of Parking Lots
 <p align="center">
 <img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/Mapandlist.jpeg" width="300" margin="auto"/>
 </p>
 
-### * Parking Lot Info
+### Parking Lot Info
 <p align="center">
 <img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/parkinglotinfo.jpeg" width = "300" margin="auto"/>
 </p>
 
-### * Navigation via Google Maps
+### Navigation via Google Maps
 <p align="center">
 <img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/route.jpeg" width = "300" margin="auto"/>
 </p>
