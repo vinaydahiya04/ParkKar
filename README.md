@@ -4,10 +4,10 @@ The park_kar app helps you to find the nearby Parking Lots. It shows all the nea
 
 ## Features
 
-* Uses your Location to find nearby Parking Lots.
+* Uses your Location to sfind nearby Parking Lots.
 * Display the number of Available Spots in the Parking Lots.
 * Allows to navigate via Google Maps.
 * Displays User Ratings and onsite image to help you find a safe Parking Lot for your vehicle.
 
 ## User Interface
-![Home Screen](https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/homescreen.jpeg "HomeSceen")
+<img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/homescreen.jpeg" width="100"/>
