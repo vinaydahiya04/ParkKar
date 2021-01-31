@@ -13,7 +13,7 @@ Now you go anywhere with your car/bike without any parking issues. Just have a l
 * Uses your Location to find nearby Parking Lots.
 * Displays the number of Available Spots in the Parking Lots.
 * Easy Naviagtion via Google Maps.
-* Have a look at User Rating for assurance.
+
 
 ## User Interface
 
