@@ -180,7 +180,9 @@ const addVehicleToProfile = async (req, res) => {
             req.userData._id,
             { vehicles: vehicles },
             { new: true }
-        );
+        )
+
+        updatedUser.populate('vehicles.Vehicle');
 
         res.status(200).json({ message: "User Details was updated!", data: updatedUser });
 
