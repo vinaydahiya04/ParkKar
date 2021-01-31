@@ -185,8 +185,7 @@ const addVehicleToProfile = async (req, res) => {
             { vehicles: vehicles },
             { new: true }
         )
-
-        updatedUser.populate('vehicles.vehicle');
+        populate('vehicles.vehicle');
 
         res.status(200).json({ message: "User Details was updated!", data: updatedUser });
 
