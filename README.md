@@ -7,7 +7,7 @@ The ParkKar app adds ease to life by providing real time information about nearb
 Now you go anywhere with your car/bike without any parking issues. Just have a look at the ParkKar App and you are Good To Go.
 
 
-<a href="https://youtu.be/byUXP8DwfmM" target="_blank">Checkout the Youtube Video</i></a>
+<a href="https://youtu.be/-CK_Im9U-_s" target="_blank">Checkout the Youtube Video</i></a>
 ## Features
 
 * Uses your Location to find nearby Parking Lots.
@@ -44,4 +44,4 @@ Now you go anywhere with your car/bike without any parking issues. Just have a l
 * Flutter for Mobile App Development
 
 ## How To use
-* Download the APK file from the apk folder in the github repository on your android or iOS mobile devices.
+* Download the APK file from the apk folder in the github repository on your android mobile devices.
