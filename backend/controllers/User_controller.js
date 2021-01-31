@@ -169,15 +169,15 @@ const addVehicleToProfile = async (req, res) => {
         console.log(vehicles);
 
 
-        const vehicle = new VehicleModel({
+        const vehicleTest = new VehicleModel({
             seater: req.body.vehicle.seater,
             model: req.body.vehicle.model,
             company: req.body.vehicle.company
         })
 
-        await vehicle.save();
+        await vehicleTest.save();
 
-        vehicles.push(vehicle._id);
+        vehicles.push({ vehicle: vehicleTest._id });
         console.log(vehicles);
 
         const updatedUser = await UserModel.findByIdAndUpdate(
