@@ -12,7 +12,7 @@ The park_kar app helps you to find the nearby Parking Lots. It shows all the nea
 ## User Interface
 
 ### Home Screen
-<img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/homescreen.jpeg" width="300" margin="auto"
+<img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/homescreen.jpeg" width="300" margin="auto"/>
 
 
 ### List and Location of Parking Lots
@@ -20,8 +20,8 @@ The park_kar app helps you to find the nearby Parking Lots. It shows all the nea
 
 
 ### Parking Lot Info
-<img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/parkinglotinfo.jpeg" width = "300" margin="auto">
+<img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/parkinglotinfo.jpeg" width = "300" margin="auto"/>
 
 
 ### Navigation via Google Maps
-<img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/route.jpeg" width = "300" margin="auto">
+<img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/route.jpeg" width = "300" margin="auto"/>
