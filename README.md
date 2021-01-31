@@ -1,10 +1,10 @@
-# park_kar App
+# parkKar App
 
-Get information about all nearby Parking Lots using the <i>par_kar</i> app
+Get information about all nearby Parking Lots using the <i>parkKar</i> app
 
-The park_kar app adds ease to life by providing real time information about nearby Parking Lots. 
+The parkKar app adds ease to life by providing real time information about nearby Parking Lots. 
 
-Now you go anywhere with your car/bike without any parking issues. Just have a look at the park_ker App and you are Good To Go.
+Now you go anywhere with your car/bike without any parking issues. Just have a look at the parkKer App and you are Good To Go.
 
 
 <a href="https://youtu.be/byUXP8DwfmM" target="_blank">Checkout the Youtube Video</i></a>
@@ -19,22 +19,22 @@ Now you go anywhere with your car/bike without any parking issues. Just have a l
 
 ### Home Screen
 <p align="center">
-<img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/homescreen.jpeg" width="300" margin="auto"/>
+<img src="https://github.com/vinaydahiya04/ParkKar/blob/master/images/homePage.jpg" width="300" margin="auto"/>
 </p>
 
 ### List and Location of Parking Lots
 <p align="center">
-<img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/Mapandlist.jpeg" width="300" margin="auto"/>
+<img src="https://github.com/vinaydahiya04/ParkKar/blob/master/images/parkingLots.jpg" width="300" margin="auto"/>
 </p>
 
 ### Parking Lot Info
 <p align="center">
-<img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/parkinglotinfo.jpeg" width = "300" margin="auto"/>
+<img src="https://github.com/vinaydahiya04/ParkKar/blob/master/images/parkingLotInfo.jpg" width = "300" margin="auto"/>
 </p>
 
 ### Navigation via Google Maps
 <p align="center">
-<img src="https://github.com/vinaydahiya04/ParkKar/blob/markdown-testing/images/route.jpeg" width = "300" margin="auto"/>
+<img src="https://github.com/vinaydahiya04/ParkKar/blob/master/images/Navigation.jpg" width = "300" margin="auto"/>
 </p>
 
 ## Technologies Used
