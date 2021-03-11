@@ -19,7 +19,7 @@ const ParkingLotSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        
+
     },
     // googleId: {
     //     type: String
@@ -41,7 +41,7 @@ const ParkingLotSchema = new mongoose.Schema({
         type:
             [
                 {
-                    type: String, default: null
+                    type: String, default: "https://www.claconnect.com/-/media/cla-image-repository/general/casual_family_and_recreation/surface-lot-car-parking.jpg"
                 }
             ]
     },
@@ -70,11 +70,11 @@ const ParkingLotSchema = new mongoose.Schema({
         type: Number,
         min: [0, 'Rating must be at least 0'],
         max: [5, 'Rating must can not be more than 5'],
-        default:0
+        default: 0
     },
-    averageCount:{
-        type:Number,
-        default:0
+    averageCount: {
+        type: Number,
+        default: 0
     }
 
 })
