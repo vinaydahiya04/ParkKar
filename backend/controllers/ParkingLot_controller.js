@@ -10,7 +10,13 @@ const RegisterPL = async (req, res) => {
             !req.body.phone ||
             !req.body.password ||
             !req.body.name ||
-            !req.body.address) {
+            !req.body.address ||
+            !req.body.latitude ||
+            !req.body.longitude ||
+            !req.body.charges ||
+            !req.body.startingTime ||
+            !req.body.endingTime
+        ) {
 
             return res.status(400).json({
                 message: "Please send all required fields.",
@@ -34,7 +40,12 @@ const RegisterPL = async (req, res) => {
             email: req.body.email,
             phone: req.body.phone,
             password: hashedPassword,
-            address: req.body.address
+            address: req.body.address,
+            latitude: req.body.latitude,
+            longitude: req.body.longitude,
+            startingTime: req.body.startingTime,
+            endingTime: req.body.endingTime
+
         });
         await newUser.save();
 
