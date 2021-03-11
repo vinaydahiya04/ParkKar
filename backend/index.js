@@ -48,7 +48,7 @@ mongoose
 
 //working check
 app.get("/", async (req, res) => {
-  return res.json({ message: "working" });
+  return res.json({ message: "Working" });
 });
 
 //Mail.signup()
