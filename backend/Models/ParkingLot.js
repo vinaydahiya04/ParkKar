@@ -50,10 +50,12 @@ const ParkingLotSchema = new mongoose.Schema({
 
     },
     startingTime: {
-        type: String
+        type: String,
+        default: "00"
     },
     endingTime: {
-        type: String
+        type: String,
+        default: "23"
     },
     FourSpotsLeft: {
         type: Number,
