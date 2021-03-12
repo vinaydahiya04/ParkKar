@@ -41,7 +41,7 @@ const ParkingLotSchema = new mongoose.Schema({
         type:
             [
                 {
-                    type: String, default: "https://www.claconnect.com/-/media/cla-image-repository/general/casual_family_and_recreation/surface-lot-car-parking.jpg"
+                    type: String, default: null
                 }
             ]
     },
