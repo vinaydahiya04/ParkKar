@@ -35,6 +35,7 @@ const RegisterPL = async (req, res) => {
 
         const salt = bcrypt.genSaltSync(10);
         const hashedPassword = bcrypt.hashSync(req.body.password, salt);
+        let image = ["https://www.claconnect.com/-/media/cla-image-repository/general/casual_family_and_recreation/surface-lot-car-parking.jpg"]
         let newUser = new PLModel({
             name: req.body.name,
             email: req.body.email,
@@ -44,7 +45,8 @@ const RegisterPL = async (req, res) => {
             latitude: req.body.latitude,
             longitude: req.body.longitude,
             startingTime: req.body.startingTime,
-            endingTime: req.body.endingTime
+            endingTime: req.body.endingTime,
+            image: image
 
         });
         await newUser.save();
