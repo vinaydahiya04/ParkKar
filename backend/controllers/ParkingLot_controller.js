@@ -51,6 +51,8 @@ const RegisterPL = async (req, res) => {
         });
         await newUser.save();
 
+        console.log(newUser);
+
         return res.status(200).json({ message: "Registration Completed", data: newUser });
 
     } catch (e) {
